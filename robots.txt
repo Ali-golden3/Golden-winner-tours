@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ali-golden3.github.io/Golden-winner-tours/sitemap.xml

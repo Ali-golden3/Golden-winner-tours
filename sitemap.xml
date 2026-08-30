@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://ali-golden3.github.io/Golden-winner-tours/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://ali-golden3.github.io/Golden-winner-tours/#umrah</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ali-golden3.github.io/Golden-winner-tours/#hajj</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ali-golden3.github.io/Golden-winner-tours/#about</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ali-golden3.github.io/Golden-winner-tours/#tourism</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ali-golden3.github.io/Golden-winner-tours/#contact</loc>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
