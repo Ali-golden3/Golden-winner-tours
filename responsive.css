@@ -148,3 +148,31 @@ html, body {
     }
 
 }
+/* اللوجو - إطار دهبي رفيع + لمعة متحركة خفيفة */
+.logo {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    border: 1.5px solid var(--gold);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.logo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+    animation: logoShine 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes logoShine {
+    0%   { left: -60%; }
+    50%  { left: 130%; }
+    100% { left: 130%; }
+}
