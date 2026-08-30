@@ -1,0 +1,150 @@
+/*   GOLDEN WINNER TOURS
+   إصلاحات الموبايل (Responsive Fixes)  يتحمل بعد style.css عشان ياخد الأولوي*/
+
+/* منع أي سكرول أفقي غريب في كل الحالات */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/*  MOBILE MENU (يشتغل تحت 1000px) */
+@media (max-width: 1000px) {
+
+    .menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-menu {
+        z-index: 999;
+        background: rgba(7, 28, 49, 0.98);
+        backdrop-filter: blur(12px);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+        transition: right 0.35s ease;
+        overflow-y: auto;
+    }
+
+    .nav-menu.open {
+        right: 0;
+    }
+
+}
+
+/*   TABLET / MOBILE (768px وأقل) */
+@media (max-width: 768px) {
+
+    .section {
+        padding: 60px 0;
+    }
+
+    /* ABOUT */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-image img {
+        height: 320px;
+    }
+
+    .experience-box {
+        position: static;
+        margin-top: -40px;
+        margin-right: auto;
+        margin-left: 20px;
+        width: fit-content;
+    }
+
+    .company-info {
+        grid-template-columns: 1fr;
+    }
+
+    /* SERVICES */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* UMRAH PROGRAM */
+    .program-featured {
+        grid-template-columns: 1fr;
+    }
+
+    .program-image {
+        min-height: 260px;
+    }
+
+    .program-content {
+        padding: 30px 22px;
+    }
+
+    .program-content h3 {
+        font-size: 30px;
+    }
+
+    /* HAJJ */
+    .hajj-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* TOURISM */
+    .tourism-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .tourism-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* FOOTER */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+}
+
+/*  SMALL PHONES (480px وأقل) */
+@media (max-width: 480px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price strong {
+        font-size: 28px;
+    }
+
+    .contact-form-box {
+        padding: 24px 16px;
+    }
+
+}

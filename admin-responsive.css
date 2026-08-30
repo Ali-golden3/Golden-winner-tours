@@ -1,0 +1,53 @@
+/* 
+   GOLDEN WINNER TOURS — ADMIN
+   إصلاحات الموبايل (Responsive Fixes)
+   يتحمل بعد admin.css عشان ياخد الأولوية */
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+@media (max-width: 700px) {
+
+    .topbar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 16px;
+    }
+
+    .topbar-inner {
+        padding: 14px 0 10px;
+    }
+
+    .topbar-brand {
+        font-size: 14px;
+    }
+
+    .wrap {
+        padding: 18px 14px 40px;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .row2 {
+        grid-template-columns: 1fr;
+    }
+
+    .program-item {
+        flex-wrap: wrap;
+    }
+
+    .program-item .actions {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 6px;
+    }
+
+    .login-box {
+        padding: 32px 22px;
+    }
+
+}
