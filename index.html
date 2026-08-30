@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="جولدن وينر للسياحة - برامج الحج والعمرة والرحلات السياحية"
+    >
+
+    <title>جولدن وينر للسياحة | Golden Winner Tours</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR-->
+    <header class="navbar" id="navbar">
+
+        <div class="container nav-container">
+
+            <a href="#home" class="logo">
+                <img
+                    src="images/1.jpg"
+                    alt="Golden Winner Tours"
+                    id="siteLogo"
+                >
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+
+                <a href="#home" class="nav-link active" data-i18n="nav-home">
+                    الرئيسية
+                </a>
+
+                <a href="#about" class="nav-link" data-i18n="nav-about">
+                    من نحن
+                </a>
+
+                <a href="#services" class="nav-link" data-i18n="nav-services">
+                    خدماتنا
+                </a>
+
+                <a href="#hajj" class="nav-link" data-i18n="nav-hajj">
+                    الحج
+                </a>
+
+                <a href="#umrah" class="nav-link" data-i18n="nav-umrah">
+                    العمرة
+                </a>
+
+                <a href="#tourism" class="nav-link" data-i18n="nav-tourism">
+                    السياحة
+                </a>
+
+                <a href="#contact" class="nav-link" data-i18n="nav-contact">
+                    تواصل معنا
+                </a>
+
+            </nav>
+
+            <div class="nav-actions">
+
+                <button
+                    class="theme-btn"
+                    id="themeBtn"
+                    aria-label="تغيير الوضع"
+                >
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button
+                    class="lang-btn"
+                    id="langBtn"
+                    type="button"
+                    aria-label="Change language"
+                >
+                    EN
+                </button>
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                    aria-label="فتح القائمة"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!--HERO-->
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-slider">
+
+                <!-- Slide 1 -->
+
+                <div
+                    class="hero-slide active"
+                    id="heroSlide1"
+                    style="background-image: url('images/5.jpg');"
+                ></div>
+
+                <!-- Slide 2 -->
+
+                <div
+                    class="hero-slide"
+                    id="heroSlide2"
+                    style="background-image: url('images/4.jpg');"
+                ></div>
+
+                <!-- Slide 3 -->
+
+                <div
+                    class="hero-slide"
+                    id="heroSlide3"
+                    style="background-image: url('images/99.jpg');"
+                ></div>
+
+            </div>
+
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <span class="hero-small-title" data-i18n="hero-tag">
+                        منذ 1984
+                    </span>
+
+                    <h1 data-i18n="hero-h1">
+                        رحلتك تبدأ من هنا
+                    </h1>
+
+                    <h2 data-i18n="hero-h2">
+                        مع جولدن وينر للسياحة
+                    </h2>
+
+                    <p data-i18n="hero-p">
+                        برامج حج وعمرة مميزة تليق بكم،
+                        وتنظيم رحلات سياحية بخدمة واهتمام
+                        من أول خطوة حتى العودة.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#umrah"
+                            class="btn btn-gold"
+                        >
+                            <span data-i18n="hero-btn-umrah">اكتشف برامج العمرة</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+
+                        <a
+                            href="#contact"
+                            class="btn btn-outline"
+                        >
+                            <span data-i18n="hero-btn-contact">تواصل معنا</span>
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Slider Controls -->
+
+            <button
+                class="slider-btn slider-next"
+                id="nextSlide"
+                aria-label="الصورة التالية"
+            >
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <button
+                class="slider-btn slider-prev"
+                id="prevSlide"
+                aria-label="الصورة السابقة"
+            >
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+
+            <div class="slider-dots" id="sliderDots">
+
+                <button class="dot active"></button>
+                <button class="dot"></button>
+                <button class="dot"></button>
+
+            </div>
+
+        </section>
+        <!-- ABOUT -->
+        <section class="about section" id="about">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label" data-i18n="about-label">
+                        جولدن وينر للسياحة
+                    </span>
+
+                    <h2 data-i18n="about-h2">
+                        رحلة من الثقة والخبرة
+                    </h2>
+
+                    <div class="heading-line"></div>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="about-image">
+
+                        <img
+                            src="images/88.jpg"
+                            alt="Golden Winner Tours"
+                            id="aboutImage"
+                        >
+
+                        <div class="experience-box">
+
+                            <strong>1984</strong>
+
+                            <span data-i18n="about-exp-label">
+                                خبرة في خدمة ضيوف الرحمن
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-content">
+
+                        <span class="gold-text" data-i18n="about-tag">
+                            خبرة تليق بثقتكم
+                        </span>
+
+                        <h3 data-i18n="about-h3">
+                            شركة سياحية متخصصة في خدمة ضيوف الرحمن
+                        </h3>
+
+                        <p data-i18n="about-p1">
+                            جولدن وينر للسياحة شركة سياحية متخصصة
+                            في خدمة ضيوف الرحمن منذ عام 1984،
+                            نقدم برامج حج وعمرة مميزة، بالإضافة إلى
+                            تنظيم الرحلات السياحية وتسهيل كافة الإجراءات.
+                        </p>
+
+                        <p data-i18n="about-p2">
+                            نحرص على تقديم تجربة منظمة ومريحة،
+                            بداية من اختيار البرنامج والفنادق وحتى
+                            العودة إلى أرض الوطن.
+                        </p>
+
+
+                        <div class="company-info">
+
+                            <div class="info-item">
+
+                                <i class="fa-solid fa-certificate"></i>
+
+                                <div>
+                                    <strong data-i18n="about-info1-title">
+                                        ترخيص رقم 496
+                                    </strong>
+
+                                    <span data-i18n="about-info1-desc">
+                                        مرخصة فئة (أ)
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="info-item">
+
+                                <i class="fa-solid fa-kaaba"></i>
+
+                                <div>
+                                    <strong data-i18n="about-info2-title">
+                                        برامج حج وعمرة
+                                    </strong>
+
+                                    <span data-i18n="about-info2-desc">
+                                        مميزة وفاخرة تليق بكم
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- SERVICES -->
+
+        <section class="services section" id="services">
+
+            <div class="container">
+
+                <div class="section-heading center">
+
+                    <span class="section-label" data-i18n="services-label">
+                        خدماتنا
+                    </span>
+
+                    <h2 data-i18n="services-h2">
+                        كل تفاصيل رحلتك علينا
+                    </h2>
+
+                    <p data-i18n="services-p">
+                        خدمات متكاملة تجعل رحلتك أكثر راحة واطمئنانًا.
+                    </p>
+
+                </div>
+
+
+                <div class="services-grid">
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-kaaba"></i>
+                        </div>
+
+                        <h3 data-i18n="svc1-title">
+                            الحج والعمرة
+                        </h3>
+
+                        <p data-i18n="svc1-desc">
+                            برامج مميزة لضيوف الرحمن
+                            مع تنظيم ومتابعة مستمرة.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-plane"></i>
+                        </div>
+
+                        <h3 data-i18n="svc2-title">
+                            الطيران
+                        </h3>
+
+                        <p data-i18n="svc2-desc">
+                            تنظيم حجوزات الطيران
+                            واختيار الرحلات المناسبة.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-hotel"></i>
+                        </div>
+
+                        <h3 data-i18n="svc3-title">
+                            الفنادق
+                        </h3>
+
+                        <p data-i18n="svc3-desc">
+                            فنادق مختارة بعناية بالقرب
+                            من الأماكن المقدسة.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-bus"></i>
+                        </div>
+
+                        <h3 data-i18n="svc4-title">
+                            الانتقالات
+                        </h3>
+
+                        <p data-i18n="svc4-desc">
+                            انتقالات مريحة بسيارات
+                            حديثة ومنظمة.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-passport"></i>
+                        </div>
+
+                        <h3 data-i18n="svc5-title">
+                            التأشيرات
+                        </h3>
+
+                        <p data-i18n="svc5-desc">
+                            تسهيل إجراءات التأشيرة
+                            والباركود.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+
+                        <h3 data-i18n="svc6-title">
+                            الإشراف والمتابعة
+                        </h3>
+
+                        <p data-i18n="svc6-desc">
+                            متابعة مستمرة واهتمام
+                            بتفاصيل رحلتك.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!--UMRAH-->
+
+        <section class="programs section" id="umrah">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label" data-i18n="umrah-label">
+                        برامج العمرة
+                    </span>
+
+                    <h2 data-i18n="umrah-h2">
+                        عمرة تليق بضيوف الرحمن
+                    </h2>
+
+                    <p data-i18n="umrah-p">
+                        اختر البرنامج المناسب لك ودع علينا ترتيب التفاصيل.
+                    </p>
+
+                </div>
+
+                <div class="program-featured" id="umrahContainer">
+
+                    <div class="program-image">
+
+                        <img
+                            src="images/3.jpg"
+                            alt="عمرة البركة"
+                        >
+
+                        <span class="program-badge" data-i18n="umrah-badge">
+                            برنامج مميز
+                        </span>
+
+                    </div>
+
+
+                    <div class="program-content">
+
+                        <span class="program-category" data-i18n="umrah-category">
+                            عمرة البركة
+                        </span>
+
+                        <h3 data-i18n="umrah-duration">
+                            15 يوم / 14 ليلة
+                        </h3>
+
+                        <p class="program-description" data-i18n="umrah-desc">
+                            جمعتان في الحرمين مع إقامة مميزة
+                            في مكة والمدينة وخدمات متكاملة.
+                        </p>
+
+
+                        <div class="program-details">
+
+                            <div class="detail">
+
+                                <i class="fa-solid fa-calendar-days"></i>
+
+                                <div>
+                                    <span data-i18n="detail-travel-label">السفر</span>
+                                    <strong data-i18n="detail-travel-value">10 سبتمبر</strong>
+                                </div>
+
+                            </div>
+
+
+                            <div class="detail">
+
+                                <i class="fa-solid fa-route"></i>
+
+                                <div>
+                                    <span data-i18n="detail-route-label">المسار</span>
+                                    <strong data-i18n="detail-route-value">
+                                        القاهرة → المدينة → جدة → القاهرة
+                                    </strong>
+                                </div>
+
+                            </div>
+
+
+                            <div class="detail">
+
+                                <i class="fa-solid fa-mosque"></i>
+
+                                <div>
+                                    <span data-i18n="detail-makkah-label">مكة</span>
+                                    <strong data-i18n="detail-makkah-value">
+                                        الماسة جراند
+                                    </strong>
+                                </div>
+
+                            </div>
+
+
+                            <div class="detail">
+
+                                <i class="fa-solid fa-hotel"></i>
+
+                                <div>
+                                    <span data-i18n="detail-madinah-label">المدينة</span>
+                                    <strong data-i18n="detail-madinah-value">
+                                        درة الإيمان
+                                    </strong>
+                                </div>
+
+                            </div>
+
+
+                            <div class="detail">
+
+                                <i class="fa-solid fa-plane-departure"></i>
+
+                                <div>
+                                    <span data-i18n="detail-flight-label">الطيران</span>
+                                    <strong data-i18n="detail-flight-value">
+                                        إير كايرو
+                                    </strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="included">
+
+                            <h4 data-i18n="included-title">
+                                البرنامج شامل:
+                            </h4>
+
+                            <div class="included-list">
+
+                                <span>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span data-i18n="inc1">التأشيرة</span>
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span data-i18n="inc2">الباركود</span>
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span data-i18n="inc3">التنقلات</span>
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span data-i18n="inc4">الهدايا</span>
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span data-i18n="inc5">الإشراف</span>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="program-bottom">
+
+                            <div class="price">
+
+                                <span data-i18n="price-label">
+                                    السعر للفرد - رباعي
+                                </span>
+
+                                <strong>
+                                    49,990
+                                    <small data-i18n="price-currency">جنيه</small>
+                                </strong>
+
+                            </div>
+
+                            <a
+                                href="#contact"
+                                class="btn btn-gold"
+                            >
+                                <span data-i18n="umrah-btn">احجز الآن</span>
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!--HAJJ -->
+
+        <section class="hajj section" id="hajj">
+
+            <div class="container">
+
+                <div class="section-heading center light-heading">
+
+                    <span class="section-label" data-i18n="hajj-label">
+                        برامج الحج
+                    </span>
+
+                    <h2 data-i18n="hajj-h2">
+                        برامج حج مميزة وفاخرة
+                    </h2>
+
+                    <p data-i18n="hajj-p">
+                        تنظيم متكامل وخدمات تليق بضيوف الرحمن.
+                    </p>
+
+                </div>
+
+
+                <div class="hajj-grid" id="hajjGrid">
+
+                    <article class="hajj-card">
+
+                        <div class="hajj-icon">
+                            <i class="fa-solid fa-kaaba"></i>
+                        </div>
+
+                        <span data-i18n="hajj-card-tag">
+                            برنامج
+                        </span>
+
+                        <h3 data-i18n="hajj1-title">
+                            الحج المميز
+                        </h3>
+
+                        <p data-i18n="hajj1-desc">
+                            إقامة وخدمات مميزة مع تنظيم
+                            كامل للرحلة.
+                        </p>
+
+                        <a href="#contact">
+                            <span data-i18n="hajj1-link">اعرف التفاصيل</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+
+                    </article>
+
+
+                    <article class="hajj-card featured">
+
+                        <div class="popular" data-i18n="hajj2-badge">
+                            الأكثر تميزًا
+                        </div>
+
+                        <div class="hajj-icon">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <span data-i18n="hajj-card-tag">برنامج</span>
+                        <h3 data-i18n="hajj2-title">
+                            الحج المميز
+                        </h3>
+
+                        <p data-i18n="hajj2-desc">
+                            إقامة وخدمات مميزة مع تنظيم
+                            كامل للرحلة.
+                        </p>
+
+                        <a href="#contact">
+                            <span data-i18n="hajj2-link">اعرف التفاصيل</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+
+                    </article>
+
+
+                    <article class="hajj-card">
+
+                        <div class="hajj-icon">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+
+                        <span data-i18n="hajj-card-tag">
+                            برنامج
+                        </span>
+
+                        <h3 data-i18n="hajj3-title">
+                            الحج الفاخر
+                        </h3>
+
+                        <p data-i18n="hajj3-desc">
+                            برنامج فاخر بخدمات متكاملة
+                            واهتمام بكل تفاصيل الرحلة.
+                        </p>
+
+                        <a href="#contact">
+                            <span data-i18n="hajj3-link">اعرف التفاصيل</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- TOURISM -->
+
+        <section class="tourism section" id="tourism">
+
+            <div class="container">
+
+                <div class="tourism-content">
+
+                    <div>
+
+                        <span class="section-label" data-i18n="tourism-label">
+                            السياحة
+                        </span>
+
+                        <h2 data-i18n="tourism-h2">
+                            اكتشف العالم
+                            معنا
+                        </h2>
+
+                        <p data-i18n="tourism-p">
+                            ننظم رحلات سياحية مميزة
+                            داخل وخارج مصر، مع اختيار
+                            أفضل البرامج والخدمات
+                            التي تناسب احتياجاتك.
+                        </p>
+
+                        <a
+                            href="#contact"
+                            class="btn btn-gold"
+                        >
+                            <span data-i18n="tourism-btn">استفسر عن رحلتك</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="tourism-stats">
+
+                        <div class="stat">
+
+                            <strong>
+                                1984
+                            </strong>
+
+                            <span data-i18n="stat1-label">
+                                بداية الخبرة
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <strong>
+                                VIP
+                            </strong>
+
+                            <span data-i18n="stat2-label">
+                                خدمات مميزة
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <strong>
+                                24/7
+                            </strong>
+
+                            <span data-i18n="stat3-label">
+                                متابعة مستمرة
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!--CONTACT C -->
+        <section class="cta">
+
+            <div class="container">
+
+                <div class="cta-content">
+
+                    <span data-i18n="cta-tag">
+                        جاهز تبدأ رحلتك؟
+                    </span>
+
+                    <h2 data-i18n="cta-h2">
+                        خليك مطمئن... إحنا نرتب كل شيء
+                    </h2>
+
+                    <p data-i18n="cta-p">
+                        تواصل معنا واختار البرنامج المناسب لك.
+                    </p>
+
+                    <a
+                        href="#contact"
+                        class="btn btn-light"
+                    >
+                        <span data-i18n="cta-btn">تواصل معنا</span>
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!--  CONTACT SECTION -->
+        <section
+            class="contact section"
+            id="contact"
+        >
+            <div class="container">
+
+                <div class="section-heading center">
+
+                    <span class="section-label" data-i18n="contact-label">
+                        تواصل معنا
+                    </span>
+
+                    <h2 data-i18n="contact-h2">
+                        نحن في خدمتك
+                    </h2>
+
+                    <p data-i18n="contact-p">
+                        تواصل معنا لمعرفة تفاصيل البرامج
+                        والحجز والاستفسارات.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+                    <a href="tel:+201065102957" class="contact-card" id="phoneLink">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span data-i18n="contact-phone-label">
+                                الهاتف
+                            </span>
+
+                            <strong data-i18n="contact-phone-value">
+                                اتصل بنا
+                            </strong>
+
+                        </div>
+
+                    </a>
+<!--watts face tiktok insta-->        
+<div class="contact-card social-scroll-card">
+
+    <div class="social-scroll-box">
+        <div class="social-scroll-track">
+
+            <a href="https://wa.me/2001065102957" target="_blank" class="social-icon whatsapp" id="socialWhatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <a href="https://instagram.com/yourpage" target="_blank" class="social-icon instagram" id="socialInstagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="https://facebook.com/yourpage" target="_blank" class="social-icon facebook" id="socialFacebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="https://tiktok.com/@yourpage" target="_blank" class="social-icon tiktok" id="socialTiktok">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+
+        </div>
+    </div>
+
+</div>
+                    <div class="contact-card">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span data-i18n="contact-address-label">
+                                العنوان
+                            </span>
+
+                            <strong data-i18n="contact-address-value" id="addressText">
+                                القاهرة - مصر
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-card">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-solid fa-clock"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span data-i18n="contact-hours-label">
+                                مواعيد العمل
+                            </span>
+
+                            <strong data-i18n="contact-hours-value">
+                                يوميًا
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- CONTACT FORM MODAL -->
+
+    <div
+        class="contact-modal"
+        id="contactModal"
+    >
+
+        <div
+            class="contact-modal-overlay"
+            id="contactOverlay"
+        ></div>
+
+
+        <div class="contact-form-box">
+
+            <button
+                type="button"
+                class="close-contact"
+                id="closeContact"
+                aria-label="إغلاق"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+
+            <div class="contact-form-header">
+
+                <span data-i18n="modal-brand">
+                    جولدن وينر للسياحة
+                </span>
+
+                <h2 data-i18n="modal-h2">
+                    تواصل معنا
+                </h2>
+
+                <p data-i18n="modal-p">
+                    املأ البيانات وسنتواصل معك في أقرب وقت.
+                </p>
+
+            </div>
+
+
+            <form id="contactForm">
+
+                <!-- الاسم -->
+
+                <div class="form-group">
+
+                    <label for="customerName" data-i18n="label-name">
+                        الاسم
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="customerName"
+                            name="customerName"
+                            placeholder="اكتب اسمك"
+                            data-i18n-placeholder="placeholder-name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+                <!-- الهاتف -->
+
+                <div class="form-group">
+
+                    <label for="customerPhone" data-i18n="label-phone">
+                        رقم الهاتف
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <input
+                            type="tel"
+                            id="customerPhone"
+                            name="customerPhone"
+                            placeholder="..........."
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- البرنامج -->
+
+                <div class="form-group">
+
+                    <label for="programSelect" data-i18n="label-program">
+                        اختر البرنامج
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-kaaba"></i>
+
+                        <select
+                            id="programSelect"
+                            name="program"
+                            required
+                        >
+
+                            <option value="" data-i18n="option-default">
+                                اختر البرنامج
+                            </option>
+
+                            <option value="عمرة البركة" data-i18n="option-umrah">
+                                عمرة البركة
+                            </option>
+
+                            <option value="الحج المميز" data-i18n="option-hajj1">
+                                الحج المميز
+                            </option>
+
+                            <option value="الحج الفاخر" data-i18n="option-hajj2">
+                                الحج الفاخر
+                            </option>
+
+                            <option value="رحلات سياحية" data-i18n="option-tourism">
+                                رحلات سياحية
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <!-- الاستفسار -->
+
+                <div class="form-group">
+
+                    <label for="customerMessage" data-i18n="label-message">
+                        الاستفسار
+                    </label>
+
+                    <div class="textarea-box">
+
+                        <i class="fa-solid fa-message"></i>
+
+                        <textarea
+                            id="customerMessage"
+                            name="message"
+                            rows="5"
+                            placeholder="اكتب استفسارك هنا..."
+                            data-i18n-placeholder="placeholder-message"
+                            required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="form-submit"
+                >
+
+                    <span data-i18n="submit-btn">إرسال الاستفسار</span>
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-about">
+
+                    <img
+                        src="images/logo.png"
+                        alt="Golden Winner Tours"
+                        class="footer-logo"
+                        id="footerLogo"
+                    >
+
+                    <p data-i18n="footer-about-p">
+                        جولدن وينر للسياحة
+                        شركة سياحية متخصصة في خدمة
+                        ضيوف الرحمن منذ 1984.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <h3 data-i18n="footer-links-title">
+                        روابط سريعة
+                    </h3>
+
+                    <a href="#home" data-i18n="nav-home">
+                        الرئيسية
+                    </a>
+
+                    <a href="#about" data-i18n="nav-about">
+                        من نحن
+                    </a>
+
+                    <a href="#services" data-i18n="nav-services">
+                        خدماتنا
+                    </a>
+
+                    <a href="#umrah" data-i18n="nav-umrah">
+                        العمرة
+                    </a>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <h3 data-i18n="footer-services-title">
+                        خدماتنا
+                    </h3>
+
+                    <a href="#hajj" data-i18n="nav-hajj">
+                        الحج
+                    </a>
+
+                    <a href="#umrah" data-i18n="nav-umrah">
+                        العمرة
+                    </a>
+
+                    <a href="#tourism" data-i18n="nav-tourism">
+                        السياحة
+                    </a>
+
+                    <a href="#contact" data-i18n="nav-contact">
+                        تواصل معنا
+                    </a>
+
+                </div>
+
+
+                <div class="footer-contact">
+
+                    <h3 data-i18n="footer-company-title">
+                        بيانات الشركة
+                    </h3>
+
+                    <p data-i18n="footer-license1">
+                        ترخيص رقم 496
+                    </p>
+
+                    <p data-i18n="footer-license2">
+                        مرخصة فئة (أ)
+                    </p>
+
+                    <p data-i18n="footer-license3">
+                        برامج حج وعمرة ورحلات سياحية
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 Golden Winner Tours
+                </span>
+
+                <span data-i18n="footer-rights">
+                    جميع الحقوق محفوظة
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+                    <!-- Firebase (Compat SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="programs.js"></script>
+    <script src="settings.js"></script>
+
+                    <!--java-->
+       <script src="script.js"></script>
+  </body>              
+</html>

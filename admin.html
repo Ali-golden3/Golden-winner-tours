@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة التحكم | Golden Winner Tours</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- ========== LOGIN SCREEN ========== -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-box">
+            <i class="fa-solid fa-kaaba"></i>
+            <h1>لوحة تحكم الموقع</h1>
+            <p>Golden Winner Tours — سجّل الدخول للمتابعة</p>
+
+            <div class="field">
+                <label for="loginEmail">البريد الإلكتروني</label>
+                <input type="email" id="loginEmail" placeholder="admin@example.com">
+            </div>
+
+            <div class="field">
+                <label for="loginPassword">كلمة المرور</label>
+                <input type="password" id="loginPassword" placeholder="••••••••">
+            </div>
+
+            <button class="btn btn-gold" id="loginBtn">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                دخول
+            </button>
+
+            <div class="error-msg" id="loginError"></div>
+        </div>
+    </div>
+
+    <!-- ========== DASHBOARD ========== -->
+    <div class="dashboard" id="dashboard">
+
+        <div class="topbar">
+            <div class="topbar-inner">
+                <div class="topbar-brand">
+                    <i class="fa-solid fa-kaaba"></i>
+                    لوحة تحكم Golden Winner Tours
+                </div>
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    تسجيل الخروج
+                </button>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="tab-programs">
+                    <i class="fa-solid fa-kaaba"></i> البرامج
+                </button>
+                <button class="tab-btn" data-tab="tab-settings">
+                    <i class="fa-solid fa-gear"></i> إعدادات الموقع
+                </button>
+                <button class="tab-btn" data-tab="tab-messages">
+                    <i class="fa-solid fa-envelope"></i> الرسائل
+                    <span class="badge" id="unreadBadge" style="display:none;"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="wrap">
+
+            <!-- ============ TAB 1: PROGRAMS ============ -->
+            <div class="tab-content active" id="tab-programs">
+                <div class="wrap-grid">
+
+                    <!-- FORM PANEL -->
+                    <div class="panel">
+                        <h2><i class="fa-solid fa-pen-to-square"></i> <span id="formTitle">إضافة برنامج جديد</span></h2>
+
+                        <div class="hint">
+                            <b>ملاحظة:</b> برامج "الحج" بتظهر بأيقونة، وبرامج "العمرة" بتظهر بصورة.
+                            اختار النوع الأول عشان الحقول تتظبط تلقائي.
+                        </div>
+
+                        <div class="field">
+                            <label>نوع البرنامج</label>
+                            <select id="fCategory">
+                                <option value="umrah">عمرة</option>
+                                <option value="hajj">حج</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>اسم البرنامج</label>
+                            <input type="text" id="fTitle" placeholder="مثال: عمرة البركة">
+                        </div>
+
+                        <div class="field" id="fDurationField">
+                            <label>المدة</label>
+                            <input type="text" id="fDuration" placeholder="مثال: 15 يوم / 14 ليلة">
+                        </div>
+
+                        <div class="field">
+                            <label>الوصف</label>
+                            <textarea id="fDescription" placeholder="وصف مختصر عن البرنامج"></textarea>
+                        </div>
+
+                        <div class="row2" id="fPriceRow">
+                            <div class="field">
+                                <label>السعر</label>
+                                <input type="number" id="fPrice" placeholder="49990">
+                            </div>
+                            <div class="field">
+                                <label>العملة</label>
+                                <input type="text" id="fCurrency" value="جنيه">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>شارة البرنامج (Badge)</label>
+                            <input type="text" id="fBadge" placeholder="مثال: برنامج مميز">
+                        </div>
+
+                        <div class="field" id="fIconField">
+                            <label>الأيقونة (اسم أيقونة Font Awesome بدون fa-)</label>
+                            <input type="text" id="fIcon" placeholder="مثال: kaaba , star , gem">
+                        </div>
+
+                        <div id="fImageField">
+                            <span class="upload-label">صورة البرنامج</span>
+                            <div class="upload-box" id="uploadBox">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <span>اضغط لاختيار صورة (هترفع على Cloudinary)</span>
+                                <input type="file" id="fImageInput" accept="image/*" style="display:none;">
+                            </div>
+                            <img class="upload-preview" id="uploadPreview">
+                            <div class="upload-status" id="uploadStatus">بترفع الصورة...</div>
+                        </div>
+
+                        <div class="checkbox-row">
+                            <input type="checkbox" id="fFeatured">
+                            <label for="fFeatured">برنامج مميز (Featured)</label>
+                        </div>
+
+                        <div class="error-msg" id="formError"></div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-gold" id="saveBtn">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                حفظ البرنامج
+                            </button>
+                            <button class="btn btn-outline" id="cancelEditBtn" style="display:none;">
+                                إلغاء
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LIST PANEL -->
+                    <div class="panel">
+                        <h2><i class="fa-solid fa-list"></i> البرامج الحالية</h2>
+                        <div id="programsList">
+                            <div class="empty-state">
+                                <i class="fa-solid fa-spinner fa-spin"></i>
+                                جاري تحميل البرامج...
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ============ TAB 2: SITE SETTINGS ============ -->
+            <div class="tab-content" id="tab-settings">
+
+                <div class="panel">
+                    <h2><i class="fa-solid fa-image"></i> لوجو الموقع</h2>
+                    <div class="upload-box" id="logoBox">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <span>اضغط لتغيير اللوجو</span>
+                        <input type="file" id="logoInput" accept="image/*" style="display:none;">
+                    </div>
+                    <img class="upload-preview" id="logoPreview">
+                    <div class="upload-status" id="logoStatus">بترفع الصورة...</div>
+                </div>
+
+                <div class="panel">
+                    <h2><i class="fa-solid fa-images"></i> صور السلايدر الرئيسية (3 صور)</h2>
+                    <div class="hint">اضغط على أي صورة عشان تستبدلها بصورة جديدة.</div>
+
+                    <div class="row3">
+                        <div>
+                            <span class="upload-label">الصورة الأولى</span>
+                            <div class="upload-box" id="hero1Box">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <span>اختر صورة</span>
+                                <input type="file" id="hero1Input" accept="image/*" style="display:none;">
+                            </div>
+                            <img class="upload-preview" id="hero1Preview">
+                            <div class="upload-status" id="hero1Status">بترفع الصورة...</div>
+                        </div>
+
+                        <div>
+                            <span class="upload-label">الصورة الثانية</span>
+                            <div class="upload-box" id="hero2Box">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <span>اختر صورة</span>
+                                <input type="file" id="hero2Input" accept="image/*" style="display:none;">
+                            </div>
+                            <img class="upload-preview" id="hero2Preview">
+                            <div class="upload-status" id="hero2Status">بترفع الصورة...</div>
+                        </div>
+
+                        <div>
+                            <span class="upload-label">الصورة الثالثة</span>
+                            <div class="upload-box" id="hero3Box">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <span>اختر صورة</span>
+                                <input type="file" id="hero3Input" accept="image/*" style="display:none;">
+                            </div>
+                            <img class="upload-preview" id="hero3Preview">
+                            <div class="upload-status" id="hero3Status">بترفع الصورة...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2><i class="fa-solid fa-building-columns"></i> صورة قسم "من نحن"</h2>
+                    <div class="upload-box" id="aboutBox">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <span>اضغط لتغيير صورة قسم "من نحن"</span>
+                        <input type="file" id="aboutInput" accept="image/*" style="display:none;">
+                    </div>
+                    <img class="upload-preview" id="aboutPreview">
+                    <div class="upload-status" id="aboutStatus">بترفع الصورة...</div>
+                </div>
+
+                <div class="panel">
+                    <h2><i class="fa-solid fa-address-book"></i> بيانات التواصل</h2>
+
+                    <div class="row2">
+                        <div class="field">
+                            <label>رقم الهاتف (للاتصال — بالصيغة الدولية)</label>
+                            <input type="text" id="fPhone" placeholder="+201065102957">
+                        </div>
+                        <div class="field">
+                            <label>رقم الواتساب (أرقام فقط مع كود الدولة)</label>
+                            <input type="text" id="fWhatsapp" placeholder="201065102957">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>العنوان</label>
+                        <input type="text" id="fAddress" placeholder="القاهرة - مصر">
+                    </div>
+
+                    <div class="field">
+                        <label>لينك انستجرام</label>
+                        <input type="text" id="fInstagram" placeholder="https://instagram.com/yourpage">
+                    </div>
+
+                    <div class="field">
+                        <label>لينك فيسبوك</label>
+                        <input type="text" id="fFacebook" placeholder="https://facebook.com/yourpage">
+                    </div>
+
+                    <div class="field">
+                        <label>لينك تيك توك</label>
+                        <input type="text" id="fTiktok" placeholder="https://tiktok.com/@yourpage">
+                    </div>
+
+                    <button class="btn btn-gold" id="saveSettingsBtn">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        حفظ إعدادات الموقع
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============ TAB 3: MESSAGES ============ -->
+            <div class="tab-content" id="tab-messages">
+                <div class="panel">
+                    <h2><i class="fa-solid fa-envelope-open-text"></i> رسائل زوار الموقع</h2>
+                    <div id="messagesList">
+                        <div class="empty-state">
+                            <i class="fa-solid fa-spinner fa-spin"></i>
+                            جاري تحميل الرسائل...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMsg"></span>
+    </div>
+
+    <!-- Firebase (Compat SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
