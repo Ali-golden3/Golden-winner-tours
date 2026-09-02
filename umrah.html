@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="كل برامج العمرة المتاحة من جولدن وينر للسياحة">
+    <title>برامج العمرة | Golden Winner Tours</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="umrah.css">
+</head>
+<body>
+
+    <!-- NAVBAR-->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                <img id="siteLogo" src="images/1.jpg" alt="Golden Winner Tours">
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html#home" class="nav-link" data-i18n="nav-home">الرئيسية</a>
+                <a href="index.html#about" class="nav-link" data-i18n="nav-about">من نحن</a>
+                <a href="index.html#services" class="nav-link" data-i18n="nav-services">خدماتنا</a>
+                <a href="index.html#hajj" class="nav-link" data-i18n="nav-hajj">الحج</a>
+                <a href="umrah.html" class="nav-link active" data-i18n="nav-umrah">العمرة</a>
+                <a href="index.html#tourism" class="nav-link" data-i18n="nav-tourism">السياحة</a>
+                <a href="index.html#contact" class="nav-link" data-i18n="nav-contact">تواصل معنا</a>
+            </nav>
+
+            <div class="nav-actions">
+
+                <button class="theme-btn" id="themeBtn" aria-label="تغيير الوضع">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button class="lang-btn" id="langBtn" type="button" aria-label="Change language">
+                    EN
+                </button>
+
+                <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- PAGE HERO -->
+        <section class="umrah-page-hero">
+            <div class="container">
+                <span class="section-label" data-i18n="umrah-page-label">برامج العمرة</span>
+                <h1 data-i18n="umrah-page-h1">كل برامج العمرة المتاحة</h1>
+                <p data-i18n="umrah-page-p">اختار البرنامج اللي يناسبك من كل باقاتنا، اقتصادي أو مميز أو فاخر.</p>
+            </div>
+        </section>
+
+        <!-- ALL UMRAH PROGRAMS GRID -->
+        <section class="section umrah-all-section">
+            <div class="container">
+
+                <div class="umrah-all-grid" id="umrahAllGrid">
+                    <div class="umrah-loading">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        جاري تحميل البرامج...
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border:none; padding-top:0; justify-content:center;">
+                <span>© 2026 Golden Winner Tours — جميع الحقوق محفوظة</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase (Compat SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="settings.js"></script>
+    <script src="script.js"></script>
+    <script src="umrah.js"></script>
+
+</body>
+</html>
