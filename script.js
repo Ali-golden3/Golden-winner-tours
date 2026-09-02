@@ -733,6 +733,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
     window.openContactForm = openContactForm;
+
+    /* لو حد جاي من صفحة تانية بلينك فيه #contact (زي umrah.html)، افتح الفورم تلقائي */
+    if (window.location.hash === "#contact") {
+        openContactForm();
+    }
+
 function closeContactForm() {
 
         if (contactModal) {
