@@ -100,7 +100,14 @@ const translations = {
     "price-label": { ar: "السعر للفرد - رباعي", en: "Price per person - Quad" },
     "price-currency": { ar: "جنيه", en: "EGP" },
     "umrah-btn": { ar: "احجز الآن", en: "Book Now" },
-
+    "umrah-more-btn": { ar: "المزيد من برامج العمرة", en: "More Umrah Programs" },
+    "umrah-page-label": { ar: "برامج العمرة", en: "Umrah Programs" },
+    "umrah-page-h1": { ar: "كل برامج العمرة المتاحة", en: "All Available Umrah Programs" },
+    "umrah-page-p": {
+        ar: "اختار البرنامج اللي يناسبك من كل باقاتنا، اقتصادي أو مميز أو فاخر.",
+        en: "Choose the program that suits you from our packages — economy, premium, or luxury."
+    },
+   
     "hajj-label": { ar: "برامج الحج", en: "Hajj Programs" },
     "hajj-h2": { ar: "برامج حج مميزة وفاخرة", en: "Premium and Luxury Hajj Programs" },
     "hajj-p": {
