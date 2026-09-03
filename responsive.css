@@ -1,5 +1,8 @@
-/*   GOLDEN WINNER TOURS
-   إصلاحات الموبايل (Responsive Fixes)  يتحمل بعد style.css عشان ياخد الأولوي*/
+/* =========================================
+   GOLDEN WINNER TOURS
+   إصلاحات الموبايل (Responsive Fixes)
+   يتحمل بعد style.css عشان ياخد الأولوية
+========================================= */
 
 /* منع أي سكرول أفقي غريب في كل الحالات */
 html, body {
@@ -7,7 +10,9 @@ html, body {
     max-width: 100%;
 }
 
-/*  MOBILE MENU (يشتغل تحت 1000px) */
+/* =========================================
+   MOBILE MENU (يشتغل تحت 1000px)
+========================================= */
 @media (max-width: 1000px) {
 
     .menu-btn {
@@ -31,7 +36,9 @@ html, body {
 
 }
 
-/*   TABLET / MOBILE (768px وأقل) */
+/* =========================================
+   TABLET / MOBILE (768px وأقل)
+========================================= */
 @media (max-width: 768px) {
 
     .section {
@@ -111,7 +118,9 @@ html, body {
 
 }
 
-/*  SMALL PHONES (480px وأقل) */
+/* =========================================
+   SMALL PHONES (480px وأقل)
+========================================= */
 @media (max-width: 480px) {
 
     .container {
@@ -148,31 +157,15 @@ html, body {
     }
 
 }
-/* اللوجو - إطار دهبي رفيع + لمعة متحركة خفيفة */
-.logo {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    padding: 2px 6px;
-    border: 1.5px solid var(--gold);
-    border-radius: 8px;
+
+/* =========================================
+   GOOGLE MAP EMBED (Contact Section)
+========================================= */
+
+.map-embed-wrap {
+    margin-top: 30px;
+    border-radius: 18px;
     overflow: hidden;
-}
-
-.logo::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -60%;
-    width: 40%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
-    animation: logoShine 4s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes logoShine {
-    0%   { left: -60%; }
-    50%  { left: 130%; }
-    100% { left: 130%; }
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
 }
