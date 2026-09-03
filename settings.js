@@ -80,12 +80,17 @@ function applySiteSettings(settings) {
         if (el) el.setAttribute("href", settings.tiktok);
     }
 
-    /* العنوان */
+    /* العنوان + الخريطة */
     if (settings.address) {
 
         const addressText = document.getElementById("addressText");
+        const mapEmbed = document.getElementById("mapEmbed");
 
         if (addressText) addressText.textContent = settings.address;
+
+        if (mapEmbed) {
+            mapEmbed.src = "https://www.google.com/maps?q=" + encodeURIComponent(settings.address) + "&output=embed";
+        }
 
     }
 
