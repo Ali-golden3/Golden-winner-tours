@@ -39,7 +39,7 @@ function hdCardHTML(p) {
         : '<div class="hd-media-fallback"><i class="fa-solid fa-kaaba"></i></div>';
 
     const badge = p.badge
-        ? '<span class="hd-badge">' + hdEscape(p.badge) + '</span>'
+        ? '<div class="hd-badge-wrap"><span class="hd-badge">' + hdEscape(p.badge) + '</span></div>'
         : '';
 
     const priceBlock = p.price
@@ -48,7 +48,8 @@ function hdCardHTML(p) {
 
     return (
         '<article class="hd-card">' +
-            '<div class="hd-media">' + media + badge + '</div>' +
+            badge +
+            '<div class="hd-media">' + media + '</div>' +
             '<div class="hd-body">' +
                 '<h3 class="hd-title">' + hdEscape(p.title || "") + '</h3>' +
                 (p.duration ? '<p class="hd-duration">' + hdEscape(p.duration) + '</p>' : '') +
