@@ -100,17 +100,36 @@
     font-size: 40px;
     background: linear-gradient(135deg, var(--navy), var(--navy-light));
 }
+.hd-badge-wrap {
+    padding: 14px 16px 0;
+}
+
 .hd-card .hd-badge {
-    position: absolute;
-    top: 14px;
-    right: 14px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
     background: var(--gold);
     color: var(--navy);
     font-size: 11.5px;
     font-weight: 800;
-    padding: 5px 12px;
+    padding: 5px 14px;
     border-radius: 20px;
-    z-index: 2;
+}
+
+@keyframes hdBadgeShine {
+    0%   { transform: translateX(-150%) skewX(-20deg); }
+    60%, 100% { transform: translateX(250%) skewX(-20deg); }
+}
+
+.hd-card .hd-badge::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.75), transparent);
+    animation: hdBadgeShine 2.5s ease-in-out infinite;
 }
 
 .hd-card .hd-body {
