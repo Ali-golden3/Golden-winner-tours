@@ -6,8 +6,7 @@
 <title>لوحة التحكم | Golden Winner Tours</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="admin.css">   
-<link rel="stylesheet" href="admin-responsive.css">
+<link rel="stylesheet" href="admin.css">
 </head>
 <body>
 
@@ -55,6 +54,9 @@
             <div class="tabs">
                 <button class="tab-btn active" data-tab="tab-programs">
                     <i class="fa-solid fa-kaaba"></i> البرامج
+                </button>
+                <button class="tab-btn" data-tab="tab-hajj-details">
+                    <i class="fa-solid fa-star-and-crescent"></i> تفاصيل الحج
                 </button>
                 <button class="tab-btn" data-tab="tab-settings">
                     <i class="fa-solid fa-gear"></i> إعدادات الموقع
@@ -117,19 +119,21 @@
 
                         <div class="field">
                             <label>شارة البرنامج (Badge)</label>
-                            <input type="text" id="fBadge" placeholder="مثال: برنامج مميز" list="badgeOptions">
-<datalist id="badgeOptions">
-    <option value="برنامج اقتصادي">
-    <option value="برنامج مميز">
-    <option value="برنامج فاخر">
-    <option value="الأكثر تميزًا">
-</datalist>
+                            <input type="text" id="fBadge" placeholder="مثال: برنامج مميز">
                         </div>
 
                         <div class="field" id="fIconField">
                             <label>الأيقونة (اسم أيقونة Font Awesome بدون fa-)</label>
                             <input type="text" id="fIcon" placeholder="مثال: kaaba , star , gem">
                         </div>
+                        <div class="field" id="fTierField">
+    <label>مكان الكارت في صفحة الحج</label>
+    <select id="fTier">
+        <option value="premium">الكارت الأول (يمين)</option>
+        <option value="popular">الكارت الأوسط المميز</option>
+        <option value="luxury">الكارت الثالث (شمال)</option>
+    </select>
+</div>
 
                         <div id="fImageField">
                             <span class="upload-label">صورة البرنامج</span>
@@ -164,6 +168,114 @@
                     <div class="panel">
                         <h2><i class="fa-solid fa-list"></i> البرامج الحالية</h2>
                         <div id="programsList">
+                            <div class="empty-state">
+                                <i class="fa-solid fa-spinner fa-spin"></i>
+                                جاري تحميل البرامج...
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ============ TAB NEW: HAJJ TIER DETAILS ============ -->
+            <div class="tab-content" id="tab-hajj-details">
+                <div class="wrap-grid">
+
+                    <!-- FORM PANEL -->
+                    <div class="panel">
+                        <h2><i class="fa-solid fa-pen-to-square"></i> <span id="hdFormTitle">إضافة برنامج فرعي جديد</span></h2>
+
+                        <div class="hint">
+                            <b>ملاحظة:</b> البرامج هنا هي اللي بتظهر جوه صفحة تفاصيل كل كارت حج
+                            (لما الزائر يضغط "اعرف التفاصيل"). التبويب ده منفصل تمامًا عن تبويب "البرامج".
+                        </div>
+
+                        <div class="field">
+                            <label>تصنيف الحج (أي كارت تابع له)</label>
+                            <select id="hdTier">
+                                <option value="premium">الحج الاقتصادي</option>
+                                <option value="popular">الحج  المميز ابراج كدانة</option>
+                                <option value="luxury">الحج الفاخر</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>اسم البرنامج الفرعي</label>
+                            <input type="text" id="hdTitle" placeholder="مثال: برنامج 10 أيام - فندق 5 نجوم">
+                        </div>
+
+                        <div class="field">
+                            <label>المدة</label>
+                            <input type="text" id="hdDuration" placeholder="مثال: 10 أيام / 9 ليالي">
+                        </div>
+
+                        <div class="field">
+                            <label>الوصف</label>
+                            <textarea id="hdDescription" placeholder="وصف مختصر عن البرنامج"></textarea>
+                        </div>
+
+                        <div class="row2">
+                            <div class="field">
+                                <label>السعر (اختياري)</label>
+                                <input type="number" id="hdPrice" placeholder="مثال: 95000">
+                            </div>
+                            <div class="field">
+                                <label>العملة</label>
+                                <input type="text" id="hdCurrency" value="جنيه">
+                            </div>
+                        </div>
+
+                        <div class="row2">
+                            <div class="field">
+                                <label>شارة (اختياري)</label>
+                                <input type="text" id="hdBadge" placeholder="مثال: الأفضل مبيعًا">
+                            </div>
+                            <div class="field">
+                                <label>ترتيب الظهور</label>
+                                <input type="number" id="hdOrder" placeholder="مثال: 1">
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="upload-label">صورة البرنامج</span>
+                            <div class="upload-box" id="hdUploadBox">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <span>اضغط لاختيار صورة (هترفع على Cloudinary)</span>
+                                <input type="file" id="hdImageInput" accept="image/*" style="display:none;">
+                            </div>
+                            <img class="upload-preview" id="hdUploadPreview">
+                            <div class="upload-status" id="hdUploadStatus">بترفع الصورة...</div>
+                        </div>
+
+                        <div class="error-msg" id="hdFormError"></div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-gold" id="hdSaveBtn">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                حفظ البرنامج
+                            </button>
+                            <button class="btn btn-outline" id="hdCancelEditBtn" style="display:none;">
+                                إلغاء
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LIST PANEL -->
+                    <div class="panel">
+                        <h2><i class="fa-solid fa-list"></i> البرامج الفرعية الحالية</h2>
+
+                        <div class="field" style="margin-bottom:18px;">
+                            <label>فلترة حسب التصنيف</label>
+                            <select id="hdFilterTier">
+                                <option value="all">كل التصنيفات</option>
+                                <option value="premium">الحج الاقتصادي</option>
+                                <option value="popular">الحج المميز برنامج كدانة</option>
+                                <option value="luxury">الحج الفاخر</option>
+                            </select>
+                        </div>
+
+                        <div id="hdList">
                             <div class="empty-state">
                                 <i class="fa-solid fa-spinner fa-spin"></i>
                                 جاري تحميل البرامج...
