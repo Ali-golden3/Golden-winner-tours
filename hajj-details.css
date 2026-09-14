@@ -1,0 +1,152 @@
+/* =========================================
+   GOLDEN WINNER TOURS — صفحة تفاصيل برنامج الحج
+   يتحمّل بعد style.css فيرث المتغيرات والخطوط
+========================================= */
+
+@media (max-width: 1000px) {
+    .menu-btn { display: flex; align-items: center; justify-content: center; }
+    .nav-menu {
+        position: fixed;
+        top: 72px;
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - 72px);
+        padding: 35px 25px;
+        flex-direction: column;
+        align-items: center;
+        z-index: 999;
+        background: rgba(7, 28, 49, 0.98);
+        backdrop-filter: blur(12px);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+        transition: right 0.35s ease;
+        overflow-y: auto;
+    }
+    .nav-menu.open { right: 0; }
+}
+
+/* --- رأس الصفحة --- */
+.hajj-detail-head {
+    padding: 150px 0 55px;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(135deg, #06192b, #0b3152);
+    position: relative;
+}
+.hajj-detail-head .tier-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: rgba(212,166,58,0.15);
+    color: var(--gold-light);
+    font-size: 30px;
+}
+.hajj-detail-head .section-label { color: var(--gold-light); }
+.hajj-detail-head h1 {
+    font-size: clamp(28px, 5vw, 46px);
+    margin: 6px 0 12px;
+}
+.hajj-detail-head p {
+    color: rgba(255,255,255,.72);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- الشبكة --- */
+.hajj-detail-section { background: var(--cream); }
+
+.hajj-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 26px;
+}
+
+.hd-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.dark-mode .hd-card { background: rgba(255,255,255,0.04); }
+.hd-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow: var(--shadow);
+}
+
+.hd-card .hd-media {
+    height: 190px;
+    position: relative;
+    background: var(--navy);
+}
+.hd-card .hd-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.hd-card .hd-media-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 40px;
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+}
+.hd-card .hd-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 11.5px;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.hd-card .hd-body {
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+.hd-card .hd-title { color: var(--navy); font-size: 19px; margin: 0; }
+.dark-mode .hd-card .hd-title { color: #fff; }
+.hd-card .hd-duration { color: var(--gold); font-weight: 700; font-size: 13.5px; margin: 0; }
+.hd-card .hd-desc { color: var(--text-light); font-size: 13.5px; margin: 0; flex: 1; }
+
+.hd-card .hd-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 12px;
+    margin-top: 4px;
+    border-top: 1px dashed var(--border);
+}
+.hd-card .hd-price span { display: block; color: var(--text-light); font-size: 11px; }
+.hd-card .hd-price strong { display: block; color: var(--gold); font-size: 20px; }
+.hd-card .btn { padding: 10px 16px; min-height: auto; font-size: 13.5px; }
+
+.hd-loading, .hd-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--text-light);
+}
+.hd-empty i { font-size: 30px; color: var(--gold); margin-bottom: 10px; display: block; }
+
+@media (max-width: 600px) {
+    .hajj-detail-head { padding: 130px 0 40px; }
+    .hajj-detail-grid { grid-template-columns: 1fr; }
+}

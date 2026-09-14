@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="تفاصيل برامج الحج لدى جولدن وينر للسياحة">
+<title>تفاصيل برنامج الحج | Golden Winner Tours</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="hajj-details.css">
+</head>
+<body>
+
+    <!-- ========== NAVBAR (نفس نافبار الموقع) ========== -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                <img src="images/1.jpg" alt="Golden Winner Tours" id="siteLogo">
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html#home" class="nav-link">الرئيسية</a>
+                <a href="index.html#about" class="nav-link">من نحن</a>
+                <a href="index.html#services" class="nav-link">خدماتنا</a>
+                <a href="index.html#hajj" class="nav-link active">الحج</a>
+                <a href="index.html#umrah" class="nav-link">العمرة</a>
+                <a href="index.html#tourism" class="nav-link">السياحة</a>
+                <a href="index.html#contact" class="nav-link">تواصل معنا</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeBtn" aria-label="تغيير الوضع">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- ========== رأس الصفحة (يتغير حسب التصنيف من الرابط) ========== -->
+        <section class="hajj-detail-head" id="tierHead">
+            <div class="container">
+                <div class="tier-icon" id="tierIcon"><i class="fa-solid fa-kaaba"></i></div>
+                <span class="section-label" id="tierLabel">برنامج حج</span>
+                <h1 id="tierTitle">تفاصيل البرنامج</h1>
+                <p id="tierDesc">اختر البرنامج المناسب لك من التشكيلة التالية، وودّع علينا الباقي.</p>
+            </div>
+        </section>
+
+        <!-- ========== شبكة البرامج الفرعية ========== -->
+        <section class="section hajj-detail-section">
+            <div class="container">
+
+                <div class="hajj-detail-grid" id="hajjDetailGrid">
+                    <div class="hd-loading">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        جاري تحميل البرامج...
+                    </div>
+                </div>
+
+                <div class="hd-empty" id="hajjDetailEmpty" hidden>
+                    <i class="fa-solid fa-kaaba"></i>
+                    <p>لا توجد برامج مضافة لهذا التصنيف حاليًا، تابعنا قريبًا.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border:none;padding-top:0;">
+                <span>© 2026 Golden Winner Tours</span>
+                <span>جميع الحقوق محفوظة</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase (Compat SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="hajj-details.js"></script>
+</body>
+</html>
