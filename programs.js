@@ -19,7 +19,7 @@ function createHajjCardHTML(program) {
             '<span>برنامج</span>' +
             '<h3>' + (program.title || "") + '</h3>' +
             '<p>' + (program.description || "") + '</p>' +
-            '<a href="#contact">اعرف التفاصيل <i class="fa-solid fa-arrow-left"></i></a>' +
+            '<a href="hajj-details.html?tier=' + (program.tier || "premium") + '">اعرف التفاصيل <i class="fa-solid fa-arrow-left"></i></a>' +
         '</article>'
     );
 
