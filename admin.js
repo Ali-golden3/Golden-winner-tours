@@ -26,6 +26,7 @@ tabButtons.forEach(function (btn) {
 
         if (target === "tab-settings") loadSettingsForm();
         if (target === "tab-messages") loadMessages();
+        if (target === "tab-hajj-details") loadHdList();
     });
 });
 
@@ -153,6 +154,7 @@ const fImageField = document.getElementById("fImageField");
 function toggleCategoryFields() {
     const isHajj = fCategory.value === "hajj";
     fIconField.style.display = isHajj ? "block" : "none";
+    document.getElementById("fTierField").style.display = isHajj ? "block" : "none";
     fImageField.style.display = isHajj ? "none" : "block";
     fDurationField.style.display = isHajj ? "none" : "block";
     fPriceRow.style.display = isHajj ? "none" : "grid";
@@ -194,7 +196,8 @@ document.getElementById("saveBtn").addEventListener("click", function () {
 
     if (category === "hajj") {
         data.icon = document.getElementById("fIcon").value.trim() || "kaaba";
-    } else {
+    data.tier = document.getElementById("fTier").value;}
+     else {
         data.duration = document.getElementById("fDuration").value.trim();
         data.price = document.getElementById("fPrice").value.trim();
         data.currency = document.getElementById("fCurrency").value.trim() || "جنيه";
@@ -232,6 +235,7 @@ function resetForm() {
     document.getElementById("fPrice").value = "";
     document.getElementById("fCurrency").value = "جنيه";
     document.getElementById("fIcon").value = "";
+    document.getElementById("fTier").value = "premium";
     document.getElementById("fFeatured").checked = false;
     fCategory.value = "umrah";
     toggleCategoryFields();
@@ -313,6 +317,7 @@ function startEdit(id, p) {
 
     if (p.category === "hajj") {
         document.getElementById("fIcon").value = p.icon || "";
+        document.getElementById("fTier").value = p.tier || "premium";
     } else {
         document.getElementById("fDuration").value = p.duration || "";
         document.getElementById("fPrice").value = p.price || "";
@@ -337,6 +342,208 @@ function deleteProgram(id) {
         .then(function () {
             showToast("تم حذف البرنامج");
             loadProgramsList();
+        })
+        .catch(function () {
+            showToast("حصل خطأ أثناء الحذف", true);
+        });
+}
+
+/* =========================================================
+   ============  TAB NEW: HAJJ TIER DETAILS  ==================
+   مجموعة Firestore منفصلة تمامًا: "hajjPrograms"
+   كل مستند فيه tier (premium / popular / luxury) بيربطه
+   بواحد من الكروت التلاتة في الصفحة الرئيسية
+========================================================= */
+
+let hdEditingId = null;
+let hdUploadedImageUrl = "";
+
+const HD_TIER_LABELS = {
+    premium: "الحج الاقتصادي",
+    popular: "الحج المميز ابراج كدانة",
+    luxury: "الحج الفاخر"
+};
+
+setupUploadBox("hdUploadBox", "hdImageInput", "hdUploadPreview", "hdUploadStatus", function (url) {
+    hdUploadedImageUrl = url;
+});
+
+const hdFormError = document.getElementById("hdFormError");
+const hdFormTitle = document.getElementById("hdFormTitle");
+const hdCancelEditBtn = document.getElementById("hdCancelEditBtn");
+
+document.getElementById("hdSaveBtn").addEventListener("click", function () {
+
+    hdFormError.textContent = "";
+
+    const tier = document.getElementById("hdTier").value;
+    const title = document.getElementById("hdTitle").value.trim();
+    const description = document.getElementById("hdDescription").value.trim();
+
+    if (!title || !description) {
+        hdFormError.textContent = "من فضلك أدخل اسم البرنامج والوصف على الأقل.";
+        return;
+    }
+
+    const data = {
+        tier: tier,
+        title: title,
+        description: description,
+        duration: document.getElementById("hdDuration").value.trim(),
+        price: document.getElementById("hdPrice").value.trim(),
+        currency: document.getElementById("hdCurrency").value.trim() || "جنيه",
+        badge: document.getElementById("hdBadge").value.trim(),
+        order: Number(document.getElementById("hdOrder").value) || 0,
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    };
+
+    if (hdUploadedImageUrl) {
+        data.image = hdUploadedImageUrl;
+    }
+
+    const collectionRef = db.collection("hajjPrograms");
+
+    const savePromise = hdEditingId
+        ? collectionRef.doc(hdEditingId).update(data)
+        : collectionRef.add(data);
+
+    savePromise
+        .then(function () {
+            showToast(hdEditingId ? "تم تحديث البرنامج بنجاح" : "تم إضافة البرنامج بنجاح");
+            hdResetForm();
+            loadHdList();
+        })
+        .catch(function () {
+            hdFormError.textContent = "حصل خطأ أثناء الحفظ، حاول تاني.";
+        });
+});
+
+hdCancelEditBtn.addEventListener("click", hdResetForm);
+
+function hdResetForm() {
+    hdEditingId = null;
+    hdUploadedImageUrl = "";
+    document.getElementById("hdTier").value = "premium";
+    document.getElementById("hdTitle").value = "";
+    document.getElementById("hdDescription").value = "";
+    document.getElementById("hdDuration").value = "";
+    document.getElementById("hdPrice").value = "";
+    document.getElementById("hdCurrency").value = "جنيه";
+    document.getElementById("hdBadge").value = "";
+    document.getElementById("hdOrder").value = "";
+    document.getElementById("hdUploadPreview").style.display = "none";
+    document.getElementById("hdUploadPreview").src = "";
+    hdFormTitle.textContent = "إضافة برنامج فرعي جديد";
+    hdCancelEditBtn.style.display = "none";
+    hdFormError.textContent = "";
+}
+
+function loadHdList() {
+    const listBox = document.getElementById("hdList");
+    const filterTier = document.getElementById("hdFilterTier").value;
+
+    listBox.innerHTML =
+        '<div class="empty-state"><i class="fa-solid fa-spinner fa-spin"></i>جاري تحميل البرامج...</div>';
+
+    db.collection("hajjPrograms").get().then(function (snapshot) {
+
+        let items = [];
+        snapshot.forEach(function (doc) {
+            const data = doc.data();
+            data._id = doc.id;
+            items.push(data);
+        });
+
+        if (filterTier !== "all") {
+            items = items.filter(function (p) { return p.tier === filterTier; });
+        }
+
+        if (!items.length) {
+            listBox.innerHTML =
+                '<div class="empty-state">' +
+                    '<i class="fa-solid fa-inbox"></i>' +
+                    'لا توجد برامج فرعية مضافة لسه.' +
+                '</div>';
+            return;
+        }
+
+        items.sort(function (a, b) { return (Number(a.order) || 0) - (Number(b.order) || 0); });
+
+        listBox.innerHTML = "";
+
+        items.forEach(function (p) {
+
+            const thumbHTML = p.image
+                ? '<img src="' + p.image + '">'
+                : '<i class="fa-solid fa-kaaba"></i>';
+
+            const subText = (HD_TIER_LABELS[p.tier] || p.tier) +
+                (p.price ? " · " + p.price + " " + (p.currency || "جنيه") : "");
+
+            const item = document.createElement("div");
+            item.className = "program-item";
+            item.innerHTML =
+                '<div class="thumb">' + thumbHTML + '</div>' +
+                '<div class="info">' +
+                    '<strong>' + p.title + '</strong>' +
+                    '<span>' + subText + '</span>' +
+                '</div>' +
+                '<span class="cat-badge">' + (HD_TIER_LABELS[p.tier] || p.tier) + '</span>' +
+                '<div class="actions">' +
+                    '<button class="icon-btn edit-btn"><i class="fa-solid fa-pen"></i></button>' +
+                    '<button class="icon-btn del del-btn"><i class="fa-solid fa-trash"></i></button>' +
+                '</div>';
+
+            item.querySelector(".edit-btn").addEventListener("click", function () {
+                hdStartEdit(p._id, p);
+            });
+
+            item.querySelector(".del-btn").addEventListener("click", function () {
+                hdDeleteProgram(p._id);
+            });
+
+            listBox.appendChild(item);
+        });
+
+    }).catch(function () {
+        listBox.innerHTML =
+            '<div class="empty-state"><i class="fa-solid fa-triangle-exclamation"></i>حصل خطأ في تحميل البرامج.</div>';
+    });
+}
+
+document.getElementById("hdFilterTier").addEventListener("change", loadHdList);
+
+function hdStartEdit(id, p) {
+    hdEditingId = id;
+
+    document.getElementById("hdTier").value = p.tier || "premium";
+    document.getElementById("hdTitle").value = p.title || "";
+    document.getElementById("hdDescription").value = p.description || "";
+    document.getElementById("hdDuration").value = p.duration || "";
+    document.getElementById("hdPrice").value = p.price || "";
+    document.getElementById("hdCurrency").value = p.currency || "جنيه";
+    document.getElementById("hdBadge").value = p.badge || "";
+    document.getElementById("hdOrder").value = (p.order !== undefined && p.order !== null) ? p.order : "";
+
+    if (p.image) {
+        hdUploadedImageUrl = p.image;
+        const preview = document.getElementById("hdUploadPreview");
+        preview.src = p.image;
+        preview.style.display = "block";
+    }
+
+    hdFormTitle.textContent = "تعديل البرنامج الفرعي";
+    hdCancelEditBtn.style.display = "inline-flex";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function hdDeleteProgram(id) {
+    if (!confirm("متأكد إنك عايز تمسح البرنامج الفرعي ده؟")) return;
+
+    db.collection("hajjPrograms").doc(id).delete()
+        .then(function () {
+            showToast("تم حذف البرنامج");
+            loadHdList();
         })
         .catch(function () {
             showToast("حصل خطأ أثناء الحذف", true);
